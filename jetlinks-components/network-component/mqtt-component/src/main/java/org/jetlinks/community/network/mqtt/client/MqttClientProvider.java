@@ -163,6 +163,7 @@ public class MqttClientProvider implements NetworkProvider<MqttClientProperties>
 
         if (config.isSecure()) {
             options.setSsl(true);
+            options.setHostnameVerificationAlgorithm("HTTPS");
             return certificateManager
                 .getCertificate(config.getCertId())
                 .map(VertxKeyCertTrustOptions::new)
